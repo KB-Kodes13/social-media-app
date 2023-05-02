@@ -38,3 +38,8 @@ function createPost() {
     editPost(this);
   });
 
+  
+  function deletePost(e) {
+  e.parentElement.parentElement.remove();
+}
+
