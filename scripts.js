@@ -20,15 +20,6 @@ function formValidation() {
 }
 
 let data = {};
-
-function acceptData() {
-  data["text"] = input.value;
-  console.log(data);
-  createPost();
-}
-
-
-let data = {};
 function acceptData() {
   data["text"] = input.value;
   console.log(data);
@@ -71,7 +62,7 @@ function createPost() {
   // Appending the post text and options to the post element
   postElement.appendChild(textElement);
   postElement.appendChild(optionsElement);
-(
+
   // Append the post element to the posts container
   posts.appendChild(postElement);
 
