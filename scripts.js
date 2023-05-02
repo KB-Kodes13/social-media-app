@@ -12,6 +12,7 @@ function formValidation() {
   if (input.value === "") {
     msg.innerHTML = "Post cannot be blank";
     console.log("failure");
+    input.style.borderColor = "red";
   } else {
     console.log("successs");
     msg.innerHTML = "";
