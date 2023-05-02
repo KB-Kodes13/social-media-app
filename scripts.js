@@ -27,6 +27,15 @@ function acceptData() {
   createPost();
 }
 
+
+let data = {};
+function acceptData() {
+  data["text"] = input.value;
+  console.log(data);
+  createPost();
+}
+
+
 function createPost() {
   // gets html Element
   const postElement = document.createElement("div");
