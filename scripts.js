@@ -16,6 +16,7 @@ function formValidation() {
   } else {
     console.log("successs");
     msg.innerHTML = "";
+    input.style.borderColor = "none";
     acceptData();
   }
 }
