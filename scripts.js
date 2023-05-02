@@ -8,7 +8,16 @@ form.addEventListener("submit", function(click) {
   console.log("button clicked");
   formValidation();
 });
-
+function formValidation() {
+  if (input.value === "") {
+    msg.innerHTML = "Post cannot be blank";
+    console.log("failure");
+  } else {
+    console.log("successs");
+    msg.innerHTML = "";
+    acceptData();
+  }
+}
 
 let data = {};
 
@@ -38,7 +47,29 @@ function createPost() {
     editPost(this);
   });
 
+  // delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.classList.add("delete");
+  deleteButton.addEventListener("click", function() {
+    deletePost(this);
+  });
   
+  // Append the buttons to the options element
+  optionsElement.appendChild(editButton);
+  optionsElement.appendChild(deleteButton);
+  
+  // Appending the post text and options to the post element
+  postElement.appendChild(textElement);
+  postElement.appendChild(optionsElement);
+(
+  // Append the post element to the posts container
+  posts.appendChild(postElement);
+
+  // Clear the input value
+  input.value = "";
+}
+
   function deletePost(e) {
   e.parentElement.parentElement.remove();
 }
