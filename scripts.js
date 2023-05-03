@@ -11,7 +11,9 @@ form.addEventListener("submit", function(click) {
 });
 
 
-
+const tagin = new Tagin(document.querySelector('.tagin'), {
+  
+})
 
 
 // This is Local Storage Assignment
