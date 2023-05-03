@@ -37,10 +37,12 @@ function savePostToLocalStorage(post) {
 function formValidation() {
   if (input.value === "") {
     msg.innerHTML = "Post cannot be blank";
+    input.style.borderColor = "red";
     console.log("failure");
   } else {
     console.log("success");
     msg.innerHTML = "";
+    input.style.borderColor = "none";
     acceptData();
   }
 }
