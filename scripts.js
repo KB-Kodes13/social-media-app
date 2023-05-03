@@ -85,7 +85,7 @@ function createPost() {
   nameElement.classList.add("mt-0");
   nameElement.textContent = "Hector's World";
 
-  const dateElement = document.createElement("p");
+  const dateElement = document.createElement("span");
   dateElement.classList.add("currentDate", "text-sm");
   dateElement.id = "currentDate"; 
   dateElement.innerText = new Date().toDateString();
@@ -99,7 +99,7 @@ function createPost() {
                                                             // <span class="bi bi-heart"></span> Like
                                                             // </button>
 
-
+const editButton = document.createElement("button"); 
 
 
   imgElement.src = "https://images.squarespace-cdn.com/content/v1/6266f85818652d5c8e2ebf6b/1666109727997-HM8X7VNE6LMJ9RRUVQGU/Headshot%2BSq%2B%25281%2529.jpg?format=300w";
@@ -114,10 +114,20 @@ function createPost() {
     deletePost(this);
   });
 
+
+  editButton.type = "button";
+  editButton.classList.add("btn", "btn-outline-danger");
+  editButton.textContent = "Edit";
+  editButton.addEventListener("click", function() {
+    editPost(this);
+  });
+
+
   infoElement.appendChild(nameElement);
   infoElement.appendChild(dateElement);
   infoElement.appendChild(contentElement);
   infoElement.appendChild(deleteButton);
+  infoElement.appendChild(editButton);
   flexElement.appendChild(imgElement);
   flexElement.appendChild(infoElement);
   cardBodyElement.appendChild(flexElement);
@@ -185,11 +195,17 @@ function deletePost(button) {
 
 
 // This is the edit post button 
-function editPost(e) {
-  input.value = e.parentElement.previousElementSibling.innerHTML;
-  e.parentElement.parentElement.remove();
+// function editPost(button) {
+//   input.value = e.parentElement.previousElementSibling.innerHTML;
+//   const postElement = button.closest(".container"); // below code does remove the content but .container removes the entire container
+//   postElement.remove();
+// }
+function editPost(button) {
+  const postElement = button.closest(".container");
+  const postContent = postElement.querySelector(".card-body p").textContent;
+  input.value = postContent;
+  postElement.remove();
 }
-
 
 
 // 
