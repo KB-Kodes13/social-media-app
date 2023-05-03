@@ -42,7 +42,7 @@ function formValidation() {
   } else {
     console.log("success");
     msg.innerHTML = "";
-    input.style.borderColor = "none";
+    input.style.borderColor = "grey";
     acceptData();
   }
 }
