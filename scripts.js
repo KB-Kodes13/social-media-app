@@ -119,6 +119,47 @@ function createPost() {
   
   posts.insertBefore(postElement, posts.firstChild);
   
+
+
+
+
+   // Get the tags input value
+   const tagsInput = document.querySelector('.tagin');
+   const tagsValue = tagsInput.value;
+ 
+   // Split the tagsValue by comma and trim each tag
+const tagsArray = tagsValue.split(",").map(tag => "#" + tag.trim());
+
+   // Create a new element to wrap the tags and delete button
+   const tagsDeleteWrapper = document.createElement("span");
+ 
+   // Create a new element to display the tags
+   const tagsElement = document.createElement("p");
+   tagsElement.textContent = tagsArray.join(" ");
+ 
+   // Append the tags element to the wrapper
+   tagsDeleteWrapper.appendChild(tagsElement);
+ 
+   // Append the delete button to the wrapper
+   tagsDeleteWrapper.appendChild(deleteButton);
+ 
+   // Append the wrapper to the info element
+   infoElement.appendChild(tagsDeleteWrapper);
+
+
+
+
+
+  tagsInput.value = "";
+  input.value = "";
+  tagsInput.value = "";
+
+
+
+
+
+
+
   input.value = "";
 }
 
