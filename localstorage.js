@@ -17,12 +17,4 @@ let notesStorage = localStorage.getItem("notes")
     noteInput.value = "";
   });
 
-  const listBuilder = (text) => {
-    const note = document.createElement("li");
-    note.innerHTML = text + ' <button onclick="deleteNote(this)">x</button>';
-    notes.appendChild(note);
-  };
-const getNotes = JSON.parse(localStorage.getItem("notes"));
-getNotes.forEach((note) => {
-  listBuilder(note);
-});
+
