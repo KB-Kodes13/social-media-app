@@ -85,6 +85,12 @@ function createPost() {
   nameElement.classList.add("mt-0");
   nameElement.textContent = "Hector's World";
 
+  const dateElement = document.createElement("p");
+  dateElement.classList.add("currentDate", "text-sm");
+  dateElement.id = "currentDate"; 
+  dateElement.innerText = new Date().toDateString();
+
+
   const contentElement = document.createElement("p");       // <p>Just spent 10 minutes crafting the perfect tweet only to realize I have nothing interesting to say. Oops! 🤷‍♀️ #TimeWellWasted #SorryNotSorry </p>
   contentElement.textContent = data.text;
 
@@ -109,6 +115,7 @@ function createPost() {
   });
 
   infoElement.appendChild(nameElement);
+  infoElement.appendChild(dateElement);
   infoElement.appendChild(contentElement);
   infoElement.appendChild(deleteButton);
   flexElement.appendChild(imgElement);
