@@ -79,12 +79,12 @@ function createPost() {
 
   const nameElement = document.createElement("h5");         // <h5 class="mt-0">Hectoria Gonzalez</h5>
   nameElement.classList.add("mt-0");
-  nameElement.textContent = "Hector";
+  nameElement.textContent = "Hector's World";
 
   const contentElement = document.createElement("p");       // <p>Just spent 10 minutes crafting the perfect tweet only to realize I have nothing interesting to say. Oops! 🤷‍♀️ #TimeWellWasted #SorryNotSorry </p>
   contentElement.textContent = data.text;
 
-  const imgElement = document.createElement("img");         // <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStFUDoHmgiJsNmVzW8SA24d7Nx-t7PritGkHjwFIk&s"
+  const imgElement = document.createElement("img");         // <img src="https://images.squarespace-cdn.com/content/v1/6266f85818652d5c8e2ebf6b/1666109727997-HM8X7VNE6LMJ9RRUVQGU/Headshot%2BSq%2B%25281%2529.jpg?format=300w"
   const deleteButton = document.createElement("button");    // <button type="button" class="btn btn-outline-danger">
                                                             // <span class="bi bi-heart"></span> Like
                                                             // </button>
@@ -92,7 +92,7 @@ function createPost() {
 
 
 
-  imgElement.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStFUDoHmgiJsNmVzW8SA24d7Nx-t7PritGkHjwFIk&s";
+  imgElement.src = "https://images.squarespace-cdn.com/content/v1/6266f85818652d5c8e2ebf6b/1666109727997-HM8X7VNE6LMJ9RRUVQGU/Headshot%2BSq%2B%25281%2529.jpg?format=300w";
   imgElement.classList.add("me-3", "rounded-circle", "profile-picture");
   imgElement.alt = "Profile Picture";
   imgElement.style.width = "50px";
