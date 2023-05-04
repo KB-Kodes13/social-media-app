@@ -126,6 +126,23 @@ function createPost() {
   // input.value = "";
   // tagsInput.value = "";  //testing
   input.value = "";
+
+
+// Saves the text/tags/dates from posts to an array in local browswer storages
+//If browser reloads this information stays in local storage. The GUI, however, does not display it
+  // Create post object
+const post = {
+  text: data.text,
+  tags: tagsArray.join(" "),
+  date: new Date().toDateString()
+};
+
+// Store post to local storage
+const postsArray = JSON.parse(localStorage.getItem("posts")) || [];
+postsArray.push(post);
+localStorage.setItem("posts", JSON.stringify(postsArray));
+//End local storage
+
 }
 
 
