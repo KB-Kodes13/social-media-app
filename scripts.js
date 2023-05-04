@@ -56,6 +56,8 @@ function acceptData() {
 }
 
 
+
+
 // This is the createPost function that kicks off when you click POST button. 
 function createPost() {
   const postElement = document.createElement("div");        // <div class="container mt-2">
@@ -68,9 +70,16 @@ function createPost() {
   const contentElement = document.createElement("p");       // <p> my tweet
   const imgElement = document.createElement("img");         // <img src="https://images.squarespace-cdn.com/content/v1/6266f85818652d5c8e2ebf6b/1666109727997-HM8X7VNE6LMJ9RRUVQGU/Headshot%2BSq%2B%25281%2529.jpg?format=300w"
   const deleteButton = document.createElement("button");    // <button type="button" class="btn btn-outline-danger">
-  const editButton = document.createElement("button"); 
-
-
+  const editButton = document.createElement("button");
+  const tagsInput = document.querySelector('.tagin');                       // Get the tags input value
+  const tagsValue = tagsInput.value;
+  const tagsArray = tagsValue.split(",").map(tag => "#" + tag.trim());      // Split the tagsValue by comma and trim each tag
+  const tagsDeleteWrapper = document.createElement("span");                 // Create a new element to wrap the tags and delete button
+  const tagsElement = document.createElement("p");                          // Create a new element to display the tags
+  const heartbutton = document.createElement("button");
+  const heartSpan = document.createElement("span");
+  const likesSpan = document.createElement("span");
+  
   contentElement.textContent = data.text;
   postElement.classList.add("container", "mt-2");
   cardElement.classList.add("card");
@@ -79,7 +88,7 @@ function createPost() {
   nameElement.classList.add("mt-0");
   nameElement.textContent = "Hector's World";
   dateElement.classList.add("currentDate", "text-sm");
-  dateElement.id = "currentDate"; 
+  dateElement.id = "currentDate";
   dateElement.innerText = new Date().toDateString();
 
   imgElement.src = "https://images.squarespace-cdn.com/content/v1/6266f85818652d5c8e2ebf6b/1666109727997-HM8X7VNE6LMJ9RRUVQGU/Headshot%2BSq%2B%25281%2529.jpg?format=300w";
@@ -101,34 +110,41 @@ function createPost() {
     editPost(this);
   });
 
+  heartbutton.type = "button";
+  heartbutton.classList.add("btn", "btn-outline-danger");
+
+  heartSpan.classList.add("heart-icon");
+  heartSpan.textContent = "🤍";
+
+  likesSpan.classList.add("number-of-likes");
+  likesSpan.textContent = "0";
+
   infoElement.appendChild(nameElement);
   infoElement.appendChild(dateElement);
   infoElement.appendChild(contentElement);
-  infoElement.appendChild(deleteButton);
-  infoElement.appendChild(editButton);
+
   flexElement.appendChild(imgElement);
   flexElement.appendChild(infoElement);
   cardBodyElement.appendChild(flexElement);
   cardElement.appendChild(cardBodyElement);
   postElement.appendChild(cardElement);
-  
+  heartbutton.appendChild(heartSpan);
+  heartbutton.appendChild(likesSpan);
+
   posts.insertBefore(postElement, posts.firstChild);
 
-
-  const tagsInput = document.querySelector('.tagin');                       // Get the tags input value
-    const tagsValue = tagsInput.value;
-  const tagsArray = tagsValue.split(",").map(tag => "#" + tag.trim());      // Split the tagsValue by comma and trim each tag
-  const tagsDeleteWrapper = document.createElement("span");                 // Create a new element to wrap the tags and delete button
-  const tagsElement = document.createElement("p");                          // Create a new element to display the tags
   tagsElement.textContent = tagsArray.join(" ");
   tagsDeleteWrapper.appendChild(tagsElement);                               // Append the tags element to the wrapper
-  tagsDeleteWrapper.appendChild(deleteButton);                              // Append the delete button to the wrapper
   infoElement.appendChild(tagsDeleteWrapper);                               // Append the wrapper to the info element
+  tagsDeleteWrapper.appendChild(deleteButton);                              // Append the delete button to the wrapper
+  infoElement.appendChild(heartbutton)
+  infoElement.appendChild(editButton);
+  infoElement.appendChild(deleteButton);
 
+  
   tagsInput.value = "";  //testing
-  input.value = "";
-  tagsInput.value = "";  //testing
-
+  // input.value = "";
+  // tagsInput.value = "";  //testing
   input.value = "";
 }
 
