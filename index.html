@@ -39,30 +39,26 @@
     <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	    <div class="container-fluid ">
-	      <a class="navbar-brand" href="index.html">Dream Team Page</a>
+	      <a class="navbar-brand" href="#">Dream Team Page</a>
 	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
 	      </button>
 	      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 	          <li class="nav-item">
-	            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+	            <a class="nav-link active" aria-current="page" href="#">Home</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="interests.html">News</a>
+	            <a class="nav-link" href="#">News</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link" href="projects.html">More Blogs</a>
+	            <a class="nav-link" href="#">More Blogs</a>
 	          </li>
 	      </div>
-		     <!-- Search form -->
-		      <div class="input-group"> 
-            <form id ="note-form">
-        		<input type="text" id="find" class="form-control rounded" placeholder="Search" />
+		    <div class="input-group">
+            <input type="text" id="find" class="form-control rounded" placeholder="Search" />
             <button type="button" class="btn btn-primary "onclick="search()">Search</button> 
-     		 	</form>
-          </div>
-		      <!-- Search form -->
+        </div>
 	    </div>
 	  </nav>
 </div>
@@ -73,24 +69,23 @@
 
 
 
-<div class="container">
+<div class="container pt-5 pb-5">
   <div class="row">
     <div class="col-md-4">
       <div class="textbox">
+        <h3>Write your post here</h3>
         <form id="form">
-          <label for="">Write your post here</label>
-          <br><br>
-          <textarea name="" id="input" cols="30" rows="10" maxlength="280" placeholder="Enter your text here. Limit 280 characters."></textarea>
+          <textarea name="" id="input" cols="35" rows="10" maxlength="280" placeholder="Enter your text here. Limit 280 characters."></textarea>
           <br><br>
           <input type="text" name="tags" class="form-control tagin" data-tagin-enter value="" data-tagin-placeholder="Add words... (then press comma or enter)">
-          <div id="msg"></div>
-          <button type="submit">Post</button>
+          <div id="msg" class="pt-3"></div>
+          <button type="submit" class="btn btn-primary">Post</button>
         </form>
       </div>
     </div>
     <div class="col-md-8">
       <div class="blogs">
-        <h3>  Feed</h3>
+        <h3>Feed</h3>
         <div id="posts">
           <div class="container mt-2">
             <div class="card">
@@ -285,27 +280,6 @@
               </div>
             </div>
           </div>
-
-          <div class="container border">
-            <div>
-              <p>Post 1</p>
-              <span class="options">
-                <button onClick="editPost(this)" class="edit">Edit</button>
-                <button onClick="deletePost(this)" class="delete">Delete</button>
-              </span>
-            </div>
-          </div>
-          <div class="container border">
-            <div>
-              <p>Post 2</p>
-              <span class="options">
-                <button onClick="editPost(this)" class="edit">Edit</button>
-                <button onClick="deletePost(this)" class="delete">Delete</button>
-              </span>
-            </div>
-          </div>
-
-
         </div>
       </div>
     </div>
