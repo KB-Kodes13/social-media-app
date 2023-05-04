@@ -10,30 +10,11 @@ form.addEventListener("submit", function(click) {
   formValidation();
 });
 
-
+// needed to run the tagin package
 const tagin = new Tagin(document.querySelector('.tagin'), {
 
 })
 
-
-// This is Local Storage Assignment
-function savePostToLocalStorage(post) {
-  // Check if local storage is supported by the browser
-  if (typeof Storage !== "undefined") {
-    // Get existing posts from local storage or initialize an empty array
-    let existingPosts = JSON.parse(localStorage.getItem("posts")) || [];
-
-    // Add the new post to the array
-    existingPosts.push(post);
-
-    // Save the updated array to local storage
-    localStorage.setItem("posts", JSON.stringify(existingPosts));
-
-    console.log("Post saved to local storage");
-  } else {
-    console.log("Local storage is not supported");
-  }
-}
 
 function formValidation() {
   if (input.value === "") {
@@ -122,7 +103,6 @@ function createPost() {
   infoElement.appendChild(nameElement);
   infoElement.appendChild(dateElement);
   infoElement.appendChild(contentElement);
-
   flexElement.appendChild(imgElement);
   flexElement.appendChild(infoElement);
   cardBodyElement.appendChild(flexElement);
@@ -149,11 +129,6 @@ function createPost() {
 }
 
 
-
-
-
-
-
 const deleteButton = document.getElementById("deleteButton");
 const editButton = document.getElementById("editButton");
 deleteButton.addEventListener("click", function() {
@@ -163,9 +138,6 @@ deleteButton.addEventListener("click", function() {
 editButton.addEventListener("click", function() {
   editPost(editButton);
 });
-
-
-
 
 
 
@@ -181,7 +153,11 @@ function deletePost(button) {
 function editPost(button) {
   const postElement = button.closest(".container");
   const postContent = postElement.querySelector(".card-body p").textContent;
-  input.value = postContent;
-  postElement.remove();
-}
+  const confirmed = confirm("Are you sure you want to edit this post? You will lose all of your likes.");
+
+ 
+  if (confirmed) {
+    input.value = postContent;
+    postElement.remove();
+}}
 
