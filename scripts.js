@@ -149,11 +149,34 @@ function createPost() {
 }
 
 
+
+
+
+
+
+const deleteButton = document.getElementById("deleteButton");
+const editButton = document.getElementById("editButton");
+deleteButton.addEventListener("click", function() {
+  deletePost(deleteButton);
+});
+
+editButton.addEventListener("click", function() {
+  editPost(editButton);
+});
+
+
+
+
+
+
 // This is the delete button to remove the post
 function deletePost(button) {
   const postElement = button.closest(".container"); // below code does remove the content but .container removes the entire container
+  const confirmed = confirm("Are you sure you want to delete this post?");
+  
+  if (confirmed) {
   postElement.remove();
-}
+}}
 
 function editPost(button) {
   const postElement = button.closest(".container");
